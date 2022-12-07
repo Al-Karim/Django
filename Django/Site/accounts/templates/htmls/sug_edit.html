@@ -1,0 +1,27 @@
+{% extends 'htmls/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+
+<h3>
+    Написать резюме
+    <hr>
+</h3>
+
+<form method="POST">
+    {% csrf_token %}
+    {{ form.username }}<br>
+    {{ form.name }}<br>
+    {{ form.age }}<br>
+    {{ form.skills }}<br>
+    {{ form.job_places }}<br>
+    {{ form.money }}<br>
+    <button class="w-100 btn btn-warning" type="submit">
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Сохранить черновик</font>
+        </font>
+    </button>
+</form>
+{% endblock %}

@@ -1,0 +1,22 @@
+
+{% extends 'htmls/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h3>
+    Выйти из аккаунта
+    <hr>
+</h3>
+<form action="{% url 'log_out' %}" method="get">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="w-100 btn btn-warning">
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Выйти из аккаунта</font>
+        </font>
+    </button>
+</form>
+<a href="{% url 'sign_in' %}" class="text-decoration-none">Сменить аккаунт</a>
+{% endblock %}

@@ -1,0 +1,21 @@
+{% extends 'htmls/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h3>
+    Скачать резюме
+    <hr>
+
+    <form action="{% url 'download' %}" method="post">
+    {% csrf_token %}
+    <button class="w-100 btn btn-warning">
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Скачать файл пдф</font>
+        </font>
+    </button>
+    </form>
+</h3>
+
+{% endblock %}

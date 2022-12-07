@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <style>
+    .dropbtn {
+        background-color: white;
+        color: black;
+        padding: 7px;
+        font-size: 16px;
+        border: black;
+    }
+
+    .dropdown {
+        position: relative;
+        display: inline-block;
+    }
+
+    .dropdown-content {
+        display: none;
+        position: absolute;
+        background-color: white;
+        color: black;
+        min-width: 100px;
+        box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+        z-index: 2;
+    }
+
+    .dropdown-content a {
+        color: black;
+        padding: 12px 0px;
+        text-decoration: none;
+        display: block;
+    }
+
+    .dropdown-content-3 a {
+        color: white;
+    }
+
+    .dropdown-content a:hover {
+        background-color: #ffbf00;
+        color: black;
+
+    }
+    .dropdown-content-2 a:hover {
+        background-color: #ffbf00;
+        color: black;
+
+    }
+
+    .dropdown-content-3 a:hover {
+        color: #ffbf00;
+
+    }
+
+
+    .dropdown:hover .dropdown-content {display: block;}
+
+    .dropdown:hover .dropbtn {background-color: #ffffff;}
+    </style>
+    <title>Сайт</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css">
+
+</head>
+
+<body>
+<header class="p-3 bg-dark text-white">
+    <div class="text-white">
+        <div class="d-flex align-items-center justify-content-left justify-content-lg-start text-white">
+            <div class="dropdown-content-3">
+                <a href="{% url 'main_page' %}" class="d-flex me-1 align-right mb-1 mb-lg-0 text-decoration-none">
+                    <h4>Сайт</h4>
+                </a>
+            </div>
+            <ul class="container nav col-10 col-1 mb-0 mb-md-0 dropdown-content-2">
+                {% if user.is_authenticated %}
+                <li><a href="{% url 'sug_edit' %}" class="btn btn-outline-light me-2">Написать резюме</a></li>
+                <li><a href="{% url 'download' %}" class="btn btn-outline-light me-2">Скачать резюме</a></li>
+                {% endif %}
+            </ul>
+            {% if user.is_authenticated %}
+            <div class="dropdown-content-3">
+                <a href="{% url 'log_out1' %}" class="d-flex me-1 align-right mb-1 mb-lg-0 text-decoration-none">
+                    <h5>{{ user.username }}</h5>
+                </a>
+            </div>
+            {% else %}
+            <div class="dropdown-content-3">
+                <a href="{% url 'sign_in' %}" class="d-flex me-1 align-right mb-1 mb-lg-0 text-decoration-none">
+                    <h7>Вход</h7>
+                </a>
+            </div>
+            {% endif %}
+        </div>
+    </div>
+</header>
+
+<div class="container">
+    {% block title %} {% endblock %}
+    {% block content %} {% endblock %}
+</div>
+</body>
+</html>

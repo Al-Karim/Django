@@ -1,0 +1,23 @@
+{% extends 'htmls/base.html' %}
+
+{% block title %}
+{% endblock %}
+
+{% block content %}
+<h3>
+    Войти в аккаунт
+    <hr>
+</h3>
+
+<form action="" method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <button class="w-100 btn btn-warning" type="submit">
+        <font style="vertical-align: inherit;">
+            <font style="vertical-align: inherit;">Войти</font>
+        </font>
+    </button>
+    <p>Еще нет аккаунта? <a href="{% url 'register' %}" class="text-decoration-none">Зарегистрироваться</a></p>
+</form>
+
+{% endblock %}
